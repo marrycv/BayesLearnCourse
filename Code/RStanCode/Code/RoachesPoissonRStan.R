@@ -1,18 +1,17 @@
 # My own version of the example Roaches
 # Author: Mattias Villani, Statistics, Linkoping University, Sweden
 #         mattias.villani@liu.se
-# Date:   2012-12-05
-# Ported to RStan by Måns Magnusson
-# Date:   2013-10-24
-
-setwd("~/Dropbox/Teaching/BayesLearning/Code/RStanCode/")
+# Date:    2012-12-05
+# Ported to RStan by Mans Magnusson
+# Date:    2013-10-24
+# Updated: 2018-04-16 by Per Siden
 
 #install.packages("ggplot2")
 library(ggplot2)
 #install.packages("rstan")
 library(rstan)
 
-roachesData<-read.csv2("Data/roachdata.csv")
+roachesData<-read.csv2("../Data/roachdata.csv")
 head(roachesData)
 
 roachDataRStan<-
@@ -42,10 +41,10 @@ parameters {
 }
 
 model {
-  # Prior
+  // Prior
   beta ~ normal(0,1000.0);
 
-  # Model/likelihood
+  // Model/likelihood
   y ~ poisson_log(log_expo + beta[1] + beta[2] * treatment
                   + beta[3] * senior);
 }

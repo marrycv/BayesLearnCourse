@@ -1,9 +1,10 @@
 # My own version of the example from http://mathstat.helsinki.fi/openbugs/ExamplesFrames.html
 # Author: Mattias Villani, Statistics, Linkoping University, Sweden
 #         mattias.villani@liu.se
-# Date:   2012-12-05
-# Ported to RStan by Måns Magnusson
-# Date:   2013-10-24
+# Date:    2012-12-05
+# Ported to RStan by Mans Magnusson
+# Date:    2013-10-24
+# Updated: 2018-04-16 by Per Siden
 
 rm(list=ls())
 
@@ -14,11 +15,11 @@ nIter <- 2000
 
 rstanSeedModel<-'
 data {
-  int<lower=0> N; ## Number of observations
-  int<lower=0> r[N]; ## Number of successes
-  int<lower=0> n[N]; ## Numer of trials
-  vector[N] x1; ## Covariate 1
-  vector[N] x2; ## Covariate 2
+  int<lower=0> N; // Number of observations
+  int<lower=0> r[N]; // Number of successes
+  int<lower=0> n[N]; // Numer of trials
+  vector[N] x1; // Covariate 1
+  vector[N] x2; // Covariate 2
 }
 
 parameters {
@@ -35,13 +36,13 @@ transformed parameters {
 }
 
 model {
-  ## Priors
+  // Priors
   alpha0 ~ normal(0.0,1.0E3);
   alpha1 ~ normal(0.0,1.0E3);
   alpha2 ~ normal(0.0,1.0E3);
   tau ~ gamma(1.0E-3,1.0E-3);
 
-  ## Model
+  // Model
   b ~ normal(0.0, sigma);
   r ~ binomial_logit(n, alpha0 + alpha1 * x1 + alpha2 * x2 + b);  
 }
