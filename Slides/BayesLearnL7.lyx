@@ -124,12 +124,12 @@ Bayesian Learning - Lecture 7
 status open
 
 \begin_layout Plain Layout
-Mattias Villani
+Mattias Villani and Per Sidén
 \end_layout
 
 \end_inset
 
-Mattias Villani
+Mattias Villani and Per Sidén
 \end_layout
 
 \begin_layout Institute
@@ -1209,7 +1209,7 @@ Gibbs sampling - Bivariate normal
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename ../../BayesStat2011/Lectures/GibbsBivariateNormal1.eps
+	filename GibbsBivariateNormal1.eps
 	scale 50
 
 \end_inset
@@ -1246,7 +1246,7 @@ Gibbs sampling - Bivariate normal
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename ../../BayesStat2011/Lectures/GibbsBivariateNormal2.eps
+	filename GibbsBivariateNormal2.eps
 	scale 50
 
 \end_inset
@@ -1283,7 +1283,7 @@ Gibbs sampling - Bivariate normal
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename ../../BayesStat2011/Lectures/GibbsBivariateNormal3.eps
+	filename GibbsBivariateNormal3.eps
 	scale 50
 
 \end_inset
@@ -1321,7 +1321,7 @@ Direct sampling vs Gibbs sampling
 \align center
 \begin_inset Graphics
 	filename DirectvsGibbs.png
-	scale 42
+	scale 32
 
 \end_inset
 
@@ -1362,7 +1362,7 @@ Estimating the density of
 \align center
 \begin_inset Graphics
 	filename EstLengthVector.png
-	scale 50
+	scale 40
 
 \end_inset
 
@@ -1415,7 +1415,7 @@ Pr(\theta_{1}>0,\theta_{2}>0)\approx N^{-1}\sum_{i=1}^{N}1(\theta_{1}^{(i)}>0,\t
 \align center
 \begin_inset Graphics
 	filename CumsumJointProb.png
-	scale 40
+	scale 32
 
 \end_inset
 
@@ -1471,7 +1471,19 @@ Conditional posteriors
 
 \end_inset
 
+with 
+\begin_inset Formula $\mu_{n}$
+\end_inset
 
+ and 
+\begin_inset Formula $\tau_{n}^{2}$
+\end_inset
+
+ defined the same as when 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+ is known (Lecture 1).
 \end_layout
 
 \end_deeper
@@ -1781,7 +1793,7 @@ Illustration of mixture distributions
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename ../../BayesStat2011/Lectures/MixtureOfNormals.pdf
+	filename MixtureOfNormals.pdf
 	scale 40
 
 \end_inset

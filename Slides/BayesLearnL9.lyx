@@ -765,7 +765,7 @@ After updating
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ../../AdvBayesLearn/VT2014/ApproximateMethods/Figures/unigaussVbDemo1.pdf
+	filename unigaussVbDemo1.pdf
 	scale 25
 
 \end_inset
@@ -780,7 +780,7 @@ After updating
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ../../AdvBayesLearn/VT2014/ApproximateMethods/Figures/unigaussVbDemo2.pdf
+	filename unigaussVbDemo2.pdf
 	scale 25
 
 \end_inset
@@ -821,7 +821,7 @@ At convergence
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ../../AdvBayesLearn/VT2014/ApproximateMethods/Figures/unigaussVbDemo3.pdf
+	filename unigaussVbDemo3.pdf
 	scale 25
 
 \end_inset
@@ -836,7 +836,7 @@ At convergence
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ../../AdvBayesLearn/VT2014/ApproximateMethods/Figures/unigaussVbDemo4.pdf
+	filename unigaussVbDemo4.pdf
 	scale 25
 
 \end_inset
@@ -1045,7 +1045,7 @@ Probit example (n=200 observations)
 
 \series bold
 \begin_inset Graphics
-	filename ../../AdvBayesLearn/VT2014/ApproximateMethods/Figures/Probit_MCMCvsVB.eps
+	filename Probit_MCMCvsVB.eps
 	scale 55
 
 \end_inset
@@ -1084,7 +1084,7 @@ Probit example
 
 \series bold
 \begin_inset Graphics
-	filename ../../AdvBayesLearn/VT2014/ApproximateMethods/Figures/Probit_LowerBound.eps
+	filename Probit_LowerBound.eps
 	scale 45
 
 \end_inset
