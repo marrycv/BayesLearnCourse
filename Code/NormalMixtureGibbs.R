@@ -1,5 +1,5 @@
 # Estimating a simple mixture of normals
-# Author: Mattias Villani, IDA, Linköping University. http://mattiasvillani.com
+# Author: Mattias Villani, IDA, Linkoping University. http://mattiasvillani.com
 
 ##########    BEGIN USER INPUT #################
 # Data options
@@ -12,8 +12,8 @@ nComp <- 4    # Number of mixture components
 
 # Prior options
 alpha <- 10*rep(1,nComp) # Dirichlet(alpha)
-muPrior <- rep(0,nComp) # Prior mean of theta
-tau2Prior <- rep(10,nComp) # Prior std theta
+muPrior <- rep(0,nComp) # Prior mean of mu
+tau2Prior <- rep(10,nComp) # Prior std of mu
 sigma2_0 <- rep(var(x),nComp) # s20 (best guess of sigma2)
 nu0 <- rep(4,nComp) # degrees of freedom for prior on sigma2
 
@@ -34,12 +34,12 @@ rScaledInvChi2 <- function(n, df, scale){
 ####### Defining a function that simulates from a Dirichlet distribution
 rDirichlet <- function(param){
   nCat <- length(param)
-  thetaDraws <- matrix(NA,nCat,1)
+  piDraws <- matrix(NA,nCat,1)
   for (j in 1:nCat){
-    thetaDraws[j] <- rgamma(1,param[j],1)
+    piDraws[j] <- rgamma(1,param[j],1)
   }
-  thetaDraws = thetaDraws/sum(thetaDraws) # Diving every column of ThetaDraws by the sum of the elements in that column.
-  return(thetaDraws)
+  piDraws = piDraws/sum(piDraws) # Diving every column of piDraws by the sum of the elements in that column.
+  return(piDraws)
 }
 
 # Simple function that converts between two different representations of the mixture allocation
@@ -55,7 +55,7 @@ S2alloc <- function(S){
 # Initial value for the MCMC
 nObs <- length(x)
 S <- t(rmultinom(nObs, size = 1 , prob = rep(1/nComp,nComp))) # nObs-by-nComp matrix with component allocations.
-theta <- quantile(x, probs = seq(0,1,length = nComp))
+mu <- quantile(x, probs = seq(0,1,length = nComp))
 sigma2 <- rep(var(x),nComp)
 probObsInComp <- rep(NA, nComp)
 
@@ -74,9 +74,9 @@ for (k in 1:nIter){
   nAlloc <- colSums(S)
   print(nAlloc)
   # Update components probabilities
-  w <- rDirichlet(alpha + nAlloc)
+  pi <- rDirichlet(alpha + nAlloc)
   
-  # Update theta's
+  # Update mu's
   for (j in 1:nComp){
     precPrior <- 1/tau2Prior[j]
     precData <- nAlloc[j]/sigma2[j]
@@ -84,18 +84,18 @@ for (k in 1:nIter){
     wPrior <- precPrior/precPost
     muPost <- wPrior*muPrior + (1-wPrior)*mean(x[alloc == j])
     tau2Post <- 1/precPost
-    theta[j] <- rnorm(1, mean = muPost, sd = sqrt(tau2Post))
+    mu[j] <- rnorm(1, mean = muPost, sd = sqrt(tau2Post))
   }
   
   # Update sigma2's
   for (j in 1:nComp){
-    sigma2[j] <- rScaledInvChi2(1, df = nu0[j] + nAlloc[j], scale = (nu0[j]*sigma2_0[j] + sum((x[alloc == j] - theta[j])^2))/(nu0[j] + nAlloc[j]))
+    sigma2[j] <- rScaledInvChi2(1, df = nu0[j] + nAlloc[j], scale = (nu0[j]*sigma2_0[j] + sum((x[alloc == j] - mu[j])^2))/(nu0[j] + nAlloc[j]))
   }
   
   # Update allocation
   for (i in 1:nObs){
     for (j in 1:nComp){
-      probObsInComp[j] <- w[j]*dnorm(x[i], mean = theta[j], sd = sqrt(sigma2[j]))
+      probObsInComp[j] <- pi[j]*dnorm(x[i], mean = mu[j], sd = sqrt(sigma2[j]))
     }
     S[i,] <- t(rmultinom(1, size = 1 , prob = probObsInComp/sum(probObsInComp)))
   }
@@ -107,8 +107,8 @@ for (k in 1:nIter){
     mixDens <- rep(0,length(xGrid))
     components <- c()
     for (j in 1:nComp){
-      compDens <- dnorm(xGrid,theta[j],sd = sqrt(sigma2[j]))
-      mixDens <- mixDens + w[j]*compDens
+      compDens <- dnorm(xGrid,mu[j],sd = sqrt(sigma2[j]))
+      mixDens <- mixDens + pi[j]*compDens
       lines(xGrid, compDens, type = "l", lwd = 2, col = lineColors[j])
       components[j] <- paste("Component ",j)
     }
