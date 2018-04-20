@@ -124,12 +124,12 @@ Bayesian Learning - Lecture 9
 status open
 
 \begin_layout Plain Layout
-Mattias Villani
+Mattias Villani and Per Sidén
 \end_layout
 
 \end_inset
 
-Mattias Villani
+Mattias Villani and Per Sidén
 \end_layout
 
 \begin_layout Institute
@@ -673,6 +673,227 @@ Stan
  
 \series default
 is a probabilistic programming language based on HMC.
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Allows for Bayesian inference in many models with automatic implementation
+ of the MCMC sampler.
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Named after Stanslaw Ulam (1909-1984), co-inventor of the Monte Carlo algorithm.
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Written in C++ but can be run from R using the package 
+\family typewriter
+rstan
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \hspace{}
+\length 2cm
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename stan_logo.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 1cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename stan_ulam.jpeg
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Stan logo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 1cm
+\end_inset
+
+Stanislaw Ulam
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Stan - useful links
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "Getting started with RStan"
+target "https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started"
+
+\end_inset
+
+
+\color inherit
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "RStan vignette"
+target "https://cran.r-project.org/web/packages/rstan/vignettes/rstan.html"
+
+\end_inset
+
+
+\color inherit
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "Stan Modeling Language User's Guide and Reference Manual"
+target "http://mc-stan.org/users/documentation/"
+
+\end_inset
+
+
+\color inherit
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "Stan Case Studies"
+target "http://mc-stan.org/users/documentation/case-studies"
+
+\end_inset
+
+
+\color inherit
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "RStan processing of Stan output"
+target "https://cran.r-project.org/web/packages/rstan/vignettes/stanfit-objects.html"
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper

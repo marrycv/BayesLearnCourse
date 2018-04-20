@@ -535,6 +535,11 @@ where
 \end_inset
 
  over time.
+ [Hint: Should 
+\begin_inset Formula $x_{t}$
+\end_inset
+
+ be seen as data or parameters?]
 \end_layout
 
 \begin_layout Enumerate
