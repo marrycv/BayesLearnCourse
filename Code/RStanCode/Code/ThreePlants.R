@@ -28,7 +28,7 @@ parameters {
   real mu;
   real<lower=0> sigma2;
   real mup[P];
-  // real sigmap2[P];
+  //real sigmap2[P];
 }
 
 transformed parameters {
@@ -47,14 +47,14 @@ model {
 
   // Model 2: Multilevel normal
   //for(p in 1:P){
-  //  mup[p] ~ normal(mu,sigma2);
+  //  mup[p] ~ normal(mu,sqrt(sigma2));
   //  for(m in 1:M)
-  //    y[M*(p-1)+m] ~ normal(mup[p],sigmap2[p]); 
+  //    y[M*(p-1)+m] ~ normal(mup[p],sqrt(sigmap2[p])); 
   //}
 
   // Model 3: Multilevel poisson
   for(p in 1:P){
-    mup[p] ~ lognormal(mu,sigma2); // Log-normal
+    mup[p] ~ lognormal(mu,sqrt(sigma2)); // Log-normal
     for(m in 1:M)
       y[M*(p-1)+m] ~ poisson(mup[p]); // Poisson
   }
