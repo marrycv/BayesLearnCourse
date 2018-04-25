@@ -2509,11 +2509,7 @@ where
 \begin_inset Formula $p(\lambda)$
 \end_inset
 
- is the 
-\begin_inset Formula $Inv-\chi^{2}$
-\end_inset
-
- prior for 
+ is the Gamma prior for 
 \begin_inset Formula $\lambda$
 \end_inset
 
@@ -2578,11 +2574,7 @@ Sample
 \begin_inset Formula $\lambda\vert\beta,\sigma^{2},\mathbf{y},\mathbf{X}$
 \end_inset
 
- from Inv-
-\begin_inset Formula $\chi^{2}$
-\end_inset
-
-
+ from Gamma
 \end_layout
 
 \end_deeper

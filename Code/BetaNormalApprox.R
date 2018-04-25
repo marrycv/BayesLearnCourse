@@ -34,3 +34,4 @@ plot(xgrid,dbeta(xgrid,alpha+s,beta+f),type="l")
 lines(xgrid,dnorm(xgrid,normalMean,sqrt(normalVar)),col=2)
 legend("topright", box.lty = 1, legend = c("Beta posterior","Normal approx."), 
        col = c("black",'red'), lwd = 2)
+
