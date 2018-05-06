@@ -81,12 +81,12 @@
 \begin_layout Standard
 
 \size footnotesize
-Mattias Villani and Mans Magnusson
+Mattias Villani and Per Sidén
 \begin_inset space \hspace{}
 \length 7.5cm
 \end_inset
 
-2017-04-22
+2018-05-03
 \end_layout
 
 \begin_layout Standard
@@ -177,7 +177,7 @@ solutions
 \series bold
 May
 \series default
- 25 at 
+ 24 at 
 \series bold
 midnight
 \series default
@@ -419,7 +419,7 @@ where
 \end_inset
 
  is the posterior mode and 
-\begin_inset Formula $J_{\tilde{\beta}}$
+\begin_inset Formula $J_{\mathbf{y}}(\tilde{\beta})$
 \end_inset
 
  is the negative Hessian at the posterior mode.
@@ -428,7 +428,7 @@ where
 \end_inset
 
  and 
-\begin_inset Formula $J_{\tilde{\beta}}$
+\begin_inset Formula $J_{\mathbf{y}}(\tilde{\beta})$
 \end_inset
 
  can be obtained by numerical optimization (
@@ -444,9 +444,9 @@ texttt{optim.R}
 
 \end_inset
 
-) exactly like you already did for the probit regression in Lab 3 (but with
- the log posterior function replaced by the corresponding one for the Poisson
- model, which you have to code up.).
+) exactly like you already did for the logistic regression in Lab 2 (but
+ with the log posterior function replaced by the corresponding one for the
+ Poisson model, which you have to code up.).
 \end_layout
 
 \begin_layout Enumerate

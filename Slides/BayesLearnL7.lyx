@@ -38,6 +38,9 @@
  	% No background for page 2 and onwards
  % \fi
 }
+
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{4 on 1 with notes}[a4paper,border shrink=5mm]
 \end_preamble
 \options xcolor=svgnames
 \use_default_options false
@@ -124,12 +127,12 @@ Bayesian Learning - Lecture 7
 status open
 
 \begin_layout Plain Layout
-Mattias Villani
+Mattias Villani and Per Sidén
 \end_layout
 
 \end_inset
 
-Mattias Villani
+Mattias Villani and Per Sidén
 \end_layout
 
 \begin_layout Institute
@@ -223,14 +226,14 @@ Data augmentation
 
 \series bold
 \color blue
-Probit regression
+Mixture models
 \end_layout
 
 \begin_layout Itemize
 
 \series bold
 \color blue
-Mixture models
+Probit regression
 \begin_inset VSpace bigskip
 \end_inset
 
@@ -1209,7 +1212,7 @@ Gibbs sampling - Bivariate normal
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename ../../BayesStat2011/Lectures/GibbsBivariateNormal1.eps
+	filename GibbsBivariateNormal1.eps
 	scale 50
 
 \end_inset
@@ -1246,7 +1249,7 @@ Gibbs sampling - Bivariate normal
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename ../../BayesStat2011/Lectures/GibbsBivariateNormal2.eps
+	filename GibbsBivariateNormal2.eps
 	scale 50
 
 \end_inset
@@ -1283,7 +1286,7 @@ Gibbs sampling - Bivariate normal
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename ../../BayesStat2011/Lectures/GibbsBivariateNormal3.eps
+	filename GibbsBivariateNormal3.eps
 	scale 50
 
 \end_inset
@@ -1321,7 +1324,7 @@ Direct sampling vs Gibbs sampling
 \align center
 \begin_inset Graphics
 	filename DirectvsGibbs.png
-	scale 42
+	scale 32
 
 \end_inset
 
@@ -1362,7 +1365,7 @@ Estimating the density of
 \align center
 \begin_inset Graphics
 	filename EstLengthVector.png
-	scale 50
+	scale 40
 
 \end_inset
 
@@ -1415,7 +1418,7 @@ Pr(\theta_{1}>0,\theta_{2}>0)\approx N^{-1}\sum_{i=1}^{N}1(\theta_{1}^{(i)}>0,\t
 \align center
 \begin_inset Graphics
 	filename CumsumJointProb.png
-	scale 40
+	scale 32
 
 \end_inset
 
@@ -1471,7 +1474,19 @@ Conditional posteriors
 
 \end_inset
 
+with 
+\begin_inset Formula $\mu_{n}$
+\end_inset
 
+ and 
+\begin_inset Formula $\tau_{n}^{2}$
+\end_inset
+
+ defined the same as when 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+ is known (Lecture 1).
 \end_layout
 
 \end_deeper
@@ -1781,7 +1796,7 @@ Illustration of mixture distributions
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename ../../BayesStat2011/Lectures/MixtureOfNormals.pdf
+	filename MixtureOfNormals.pdf
 	scale 40
 
 \end_inset
@@ -2494,11 +2509,7 @@ where
 \begin_inset Formula $p(\lambda)$
 \end_inset
 
- is the 
-\begin_inset Formula $Inv-\chi^{2}$
-\end_inset
-
- prior for 
+ is the Gamma prior for 
 \begin_inset Formula $\lambda$
 \end_inset
 
@@ -2563,11 +2574,7 @@ Sample
 \begin_inset Formula $\lambda\vert\beta,\sigma^{2},\mathbf{y},\mathbf{X}$
 \end_inset
 
- from Inv-
-\begin_inset Formula $\chi^{2}$
-\end_inset
-
-
+ from Gamma
 \end_layout
 
 \end_deeper

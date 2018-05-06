@@ -38,6 +38,9 @@
  	% No background for page 2 and onwards
  % \fi
 }
+
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{4 on 1 with notes}[a4paper,border shrink=5mm]
 \end_preamble
 \options xcolor=svgnames
 \use_default_options false

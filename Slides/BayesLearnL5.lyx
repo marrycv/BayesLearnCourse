@@ -1233,7 +1233,7 @@ use a prior for
 
 \begin_layout Itemize
 One possibility: 
-\begin_inset Formula $\lambda\sim Inv-\chi^{2}(\eta_{0},\lambda_{0})$
+\begin_inset Formula $\lambda\sim\mathsf{Gamma}\left(\frac{\eta_{0}}{2},\frac{\eta_{0}}{2\lambda_{0}}\right)$
 \end_inset
 
 .
@@ -1263,7 +1263,7 @@ Hierarchical setup:
 \mathbf{y}|\beta,\mathbf{X} & \sim N(\mathbf{X}\beta,\sigma^{2}I_{n})\\
 \beta|\sigma^{2},\lambda & \sim N\left(0,\sigma^{2}\lambda^{-1}I_{m}\right)\\
 \sigma^{2} & \sim Inv-\chi^{2}(\nu_{0},\sigma_{0}^{2})\\
-\lambda & \sim Inv-\chi^{2}(\eta_{0},\lambda_{0})
+\lambda & \sim\mathsf{Gamma}\left(\frac{\eta_{0}}{2},\frac{\eta_{0}}{2\lambda_{0}}\right)
 \end{align*}
 
 \end_inset

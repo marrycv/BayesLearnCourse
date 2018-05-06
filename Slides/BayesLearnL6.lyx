@@ -576,7 +576,7 @@ Alternative:
 Probit regression
 \series default
 \color inherit
- (see Lab 3)
+
 \begin_inset Formula 
 \[
 Pr(y_{i}=1|x_{i})=\Phi(x_{i}^{'}\beta)
