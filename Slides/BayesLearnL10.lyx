@@ -2109,10 +2109,15 @@ To reduce sensitivity to the prior: sacrifice
 \end_layout
 
 \begin_layout Itemize
-Predictive density score: PS
+Predictive density score (PS).
+ Decompose 
+\begin_inset Formula $p(y_{1},...,y_{n})$
+\end_inset
+
+ as
 \begin_inset Formula 
 \[
-PS(n^{*})=p(y_{n^{*}+1}\vert y_{1},...,y_{n^{*}})\cdots p(y_{n}\vert y_{1},...,y_{n-1})
+\underset{\text{training}}{\underbrace{p(y_{1})p(y_{2}|y_{1})\cdots}}\,\,\,\underset{\text{test}}{\underbrace{p(y_{n^{*}+1}\vert y_{1},...,y_{n^{*}})\cdots p(y_{n}|y_{1},y_{2},...,y_{n-1})}}
 \]
 
 \end_inset
