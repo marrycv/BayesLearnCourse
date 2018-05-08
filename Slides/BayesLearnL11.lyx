@@ -552,7 +552,7 @@ Bayesian nonparametrics
 status open
 
 \begin_layout Plain Layout
-Approximate marginal likelihoods
+Laplace approximation
 \end_layout
 
 \end_inset
@@ -566,24 +566,26 @@ Approximate marginal likelihoods
 
 \begin_deeper
 \begin_layout Itemize
-Taylor approximation of the log posterior
+Taylor approximation of the log likelihood
 \begin_inset Formula 
 \begin{align*}
-\ln p(\mathbf{y}|\theta)p(\theta) & \approx\ln p(\mathbf{y}|\hat{\theta})+\ln p(\hat{\theta})-\frac{1}{2}J_{\hat{\theta},\mathbf{y}}(\theta-\hat{\theta})^{2},
+\ln p(\mathbf{y}|\theta) & \approx\ln p(\mathbf{y}|\hat{\theta})-\frac{1}{2}J_{\hat{\theta},\mathbf{y}}(\theta-\hat{\theta})^{2},
+\end{align*}
+
+\end_inset
+
+so
+\begin_inset Formula 
+\begin{align*}
+p(\mathbf{y}|\theta)p(\theta) & \approx p(\mathbf{y}|\hat{\theta})\exp\left[-\frac{1}{2}J_{\hat{\theta},\mathbf{y}}(\theta-\hat{\theta})^{2}\right]p(\hat{\theta})\\
+ & =p(\mathbf{y}|\hat{\theta})p(\hat{\theta})(2\pi)^{p/2}\left\vert J_{\hat{\theta},\mathbf{y}}^{-1}\right\vert ^{1/2}\\
+ & =\times\underset{\text{multivariate normal density}}{\underbrace{(2\pi)^{-p/2}\left\vert J_{\hat{\theta},\mathbf{y}}^{-1}\right\vert ^{-1/2}\exp\left[-\frac{1}{2}J_{\hat{\theta},\mathbf{y}}(\theta-\hat{\theta})^{2}\right]}}
 \end{align*}
 
 \end_inset
 
 
-\begin_inset Formula 
-\[
-p(\mathbf{y}|\theta)p(\theta)\approx p(\mathbf{y}|\hat{\theta})p(\hat{\theta})\exp\left[-\frac{1}{2}J_{\hat{\theta},\mathbf{y}}(\theta-\hat{\theta})^{2}\right]
-\]
-
-\end_inset
-
-
-\begin_inset VSpace medskip
+\begin_inset VSpace smallskip
 \end_inset
 
 
@@ -610,6 +612,50 @@ where
 
  is the number of unrestricted parameters in the model.
  
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+BIC
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color red
+The Laplace approximation
+\series default
+\color inherit
+: 
+\begin_inset Formula 
+\[
+\ln\hat{p}(\mathbf{y})=\ln p(\mathbf{y}|\hat{\theta})+\text{ln}p(\hat{\theta})+\frac{1}{2}\ln\left\vert J_{\hat{\theta},\mathbf{y}}^{-1}\right\vert +\frac{p}{2}\ln(2\pi).
+\]
+
+\end_inset
+
+
 \begin_inset VSpace medskip
 \end_inset
 
@@ -625,12 +671,12 @@ Note that
 \begin_inset Formula $J_{\hat{\theta},\mathbf{y}}$
 \end_inset
 
-can be obtained with 
+ can be obtained with 
 \series bold
 numerical optimization
 \series default
- with BFGS update of Hessian.
-\begin_inset VSpace medskip
+.
+\begin_inset VSpace bigskip
 \end_inset
 
 
@@ -643,7 +689,11 @@ The
 BIC approximation
 \series default
 \color inherit
- is obtained if 
+ is a large sample (large 
+\begin_inset Formula $n$
+\end_inset
+
+) approximation obtained when 
 \begin_inset Formula $J_{\hat{\theta},\mathbf{y}}$
 \end_inset
 
@@ -651,7 +701,11 @@ BIC approximation
 \begin_inset Formula $n\cdot I_{p}$
 \end_inset
 
- in large samples 
+ in large samples and the small term 
+\begin_inset Formula $+\frac{p}{2}\ln(2\pi)$
+\end_inset
+
+ is ignored
 \begin_inset Formula 
 \[
 \ln\hat{p}(\mathbf{y})=\ln p(\mathbf{y}|\hat{\theta})+\ln p(\hat{\theta})-\frac{p}{2}\ln n.
@@ -792,6 +846,10 @@ p(\mathcal{I}|\mathbf{y},\mathbf{X})\propto p(\mathbf{y}|\mathbf{X},\mathbf{\mat
 \end_inset
 
 
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -805,6 +863,10 @@ The prior
 
 .
  
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -818,9 +880,9 @@ prior inclusion probability
 \series default
 \color inherit
 .
-\end_layout
+\begin_inset VSpace bigskip
+\end_inset
 
-\begin_layout Pause
 
 \end_layout
 
@@ -921,6 +983,10 @@ Prior:
 \end_inset
 
 
+\begin_inset VSpace smallskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -942,11 +1008,15 @@ where
 \begin_inset Formula $\mathbf{X}_{\mathcal{I}}$
 \end_inset
 
- is the covariate matrix for the subset given by 
+ is the covariate matrix for the subset selected by 
 \begin_inset Formula $\mathcal{I}$
 \end_inset
 
 .
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -1006,10 +1076,6 @@ But there are
 ...
  but most will have essentially zero posterior probability.
  Phew!
-\end_layout
-
-\begin_layout Pause
-
 \end_layout
 
 \begin_layout Itemize
@@ -1113,10 +1179,6 @@ Draw
 \end_layout
 
 \end_deeper
-\begin_layout Pause
-
-\end_layout
-
 \begin_layout Itemize
 Only need to compute 
 \begin_inset Formula $Pr(I_{i}=0|\mathbf{\mathcal{I}}_{-i},\mathbf{y},\mathbf{X})$
