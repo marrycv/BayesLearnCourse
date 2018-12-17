@@ -447,6 +447,7 @@ texttt{optim.R}
 ) exactly like you already did for the logistic regression in Lab 2 (but
  with the log posterior function replaced by the corresponding one for the
  Poisson model, which you have to code up.).
+ Report the posterior mean and standard deviation based on the approximation.
 \end_layout
 
 \begin_layout Enumerate
